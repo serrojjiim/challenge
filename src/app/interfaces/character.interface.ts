@@ -1,7 +1,10 @@
 export interface Location {
   name: string;
 }
-
+export interface Origin {
+  name: string;
+  url: string;
+}
 export type CharacterStatus = 'Alive' | 'Dead' | 'unknown';
 export type CharacterGender = 'Female' | 'Male' | 'Genderless' | 'unknown';
 
@@ -13,6 +16,7 @@ export interface Character {
   readonly status: CharacterStatus;
   readonly gender: CharacterGender;
   readonly location: Location;
+  readonly origin: Origin;
 }
 
 export interface CharacterResponse {

@@ -23,9 +23,9 @@ export class CharacterListComponent {
     startWith(''),
     debounceTime(300),
     distinctUntilChanged(),
-    switchMap((searchTerm: string | undefined) =>
-      this.characterService.getCharacters(1, searchTerm),
+    switchMap(searchTerm =>
+      this.characterService.getCharacters(1, searchTerm)
     ),
-    map((response) => response.results),
+    map(response => response.results)
   );
 }

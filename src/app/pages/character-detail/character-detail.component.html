@@ -1,0 +1,54 @@
+<div class="detail-container">
+  <a
+    routerLink="/"
+    class="back-btn"
+    aria-label="Back to character list"
+  >
+    ← Back to list
+  </a>
+
+  @if (character$ | async; as character) {
+    <div class="detail-card">
+      <div class="card-header">
+        <img
+          [src]="character.image"
+          [alt]="character.name"
+          loading="lazy"
+        />
+
+        <div class="status-badge" [class]="character.status">
+          {{ character.status }}
+        </div>
+      </div>
+
+      <div class="card-body">
+        <h1>{{ character.name }}</h1>
+        <hr />
+
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Species</span>
+            <span class="value">{{ character.species }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Gender</span>
+            <span class="value">{{ character.gender }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Origin</span>
+            <span class="value">{{ character.origin.name }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Location</span>
+            <span class="value">{{ character.location.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <p class="loading">Loading details...</p>
+  }
+</div>
