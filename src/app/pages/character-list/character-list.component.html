@@ -1,6 +1,15 @@
 <div class="container">
   <h1>Rick and Morty</h1>
 
+    <div class="filters">
+    <input 
+      type="text" 
+      [formControl]="searchControl" 
+      placeholder="Search by name..."
+      class="search-input"
+    >
+  </div>
+
   <div class="character-grid">
     @if (characters$ | async; as list) {
       @for (character of list; track character.id) {
