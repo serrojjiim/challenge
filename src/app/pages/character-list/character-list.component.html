@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Rick and Morty</h1>
+
+  <div class="character-grid">
+    @if (characters$ | async; as list) {
+      @for (character of list; track character.id) {
+        <article
+          class="character-card"
+          [routerLink]="['/character', character.id]"
+          tabindex="0"
+          role="button"
+        >
+          <img [src]="character.image" [alt]="character.name" loading="lazy" />
+
+          <div class="character-info">
+            <h3>{{ character.name }}</h3>
+            <p>{{ character.species }}</p>
+          </div>
+        </article>
+      } @empty {
+        <p class="empty">No characters found.</p>
+      }
+    } @else {
+      <p class="loading">Loading...</p>
+    }
+  </div>
+</div>
