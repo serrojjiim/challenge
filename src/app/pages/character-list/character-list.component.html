@@ -1,13 +1,21 @@
 <div class="container">
   <h1>Rick and Morty</h1>
 
-    <div class="filters">
-    <input 
-      type="text" 
-      [formControl]="searchControl" 
+  <div class="filters">
+    <input
+      type="text"
+      [formControl]="searchControl"
       placeholder="Search by name..."
       class="search-input"
+    />
+
+    <select
+      class="sort-select"
+      (change)="toggleSort($any($event.target).value)"
     >
+      <option value="asc">Name (A–Z)</option>
+      <option value="desc">Name (Z–A)</option>
+    </select>
   </div>
 
   <div class="character-grid">
